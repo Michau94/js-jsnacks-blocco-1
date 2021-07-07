@@ -9,9 +9,9 @@ Esegui questo programma in due versioni, con il for e con il while.
 2 - variabile d'appoggio per stoccare vari prompt e sommarli;
 2a - versione sia for che while.
 3 - stampa della somma - console.
-
 */
-console.log('Snack 1');
+
+console.log('------------------------------Snack 1----------------------------');
 //DISPLAY
 
 var resultFor = document.getElementById('resultfor');
@@ -26,7 +26,7 @@ var number;
 //FOR 
 
 for (i = 1; i <= 5; i++) {
-    var number = parseInt(prompt('Inserisci un numero ' + i + '/5'));
+    var number = parseInt(prompt('Inserisci un numero ' + i + '/5', '1'));
 
     //validation 
 
@@ -47,7 +47,7 @@ var i = 1;
 
 
 while (i <= 5) {
-    number = parseInt(prompt('Inserisci un numero ' + i + '/5'));
+    number = parseInt(prompt('Inserisci un numero ' + i + '/5', '2'));
 
     //validation
 
@@ -81,7 +81,7 @@ se è dispari stampa il numero successivo.
 3- stampa in console */
 
 
-console.log('Snack 2');
+console.log('------------------------Snack 2-------------------------');
 alert('Snack 2');
 
 var oddEven = document.getElementById('paridispari');
@@ -101,6 +101,75 @@ if (userNumber % 2 === 0) {
     console.log('Numero dispari +1: ', userNumber + 1);
     oddEven.innerText = 'Numero dispari +1: ' + (userNumber + 1);
 }
+
+
+
+
+/*SNACK 3: Generatore di “nomi cognomi” casuali: prendendo una lista di nomi e una lista di cognomi, Gatsby vuole generare una falsa lista di 3 invitati.
+
+1- creazione array con nomi e uno con cognomi.
+2 - creazione array sul quale pushare nomi fake.
+3 - creare generatore random sfruttando math random come indice degli elementi.
+4 - assicurarsi di pushare sull'array solo elementi diversi da qualli già presenti in modo da evitare doppioni.
+*/
+
+//display
+
+console.log('--------------snack 3--------------');
+
+var fakeDisplay = document.getElementById('fake');
+
+//Arrays
+var names = ['Marco', 'Michau', 'Magda', 'Pawel'];
+var lastnames = ['Wadowski', 'Vader', 'Skywalker', 'Miao'];
+var fake = [];
+
+var i = 0;
+while (fake.length < 3) {
+    // Fake name gen
+
+    //fake name
+    var randomName = Math.floor(Math.random() * names.length);
+    // console.log(randomName);
+    var fakeName = names[randomName];
+    console.log('Random name: ', fakeName);
+
+    // fake lastname
+
+    var randomLastname = Math.floor(Math.random() * lastnames.length);
+    // console.log('Random name:', randomLastname);
+
+    var fakeLastname = lastnames[randomLastname];
+    console.log('Random lastname: ', fakeLastname);
+
+    // fake name + lastname push only if not already present in array
+    var fakePerson = fakeName + ' ' + fakeLastname;
+    console.log('Random person: ', fakePerson);
+
+    if (!fake.includes(fakePerson)) {
+        fake.push(fakePerson);
+    }
+}
+
+console.log(fake);
+
+var fakeListDisplay = '';
+
+for (var i = 0; i < fake.length; i++) {
+    fakeListDisplay += '<li>' + fake[i] + '</li>';
+}
+
+
+// output
+
+fakeDisplay.innerHTML = fakeListDisplay;
+
+
+
+/*SNACK 4: Crea due array che hanno un numero di elementi diversi.
+Aggiungi elementi casuali all’array che ha meno elementi,
+    fino a quando ne avrà tanti quanti l’altro.*/
+
 
 
 
