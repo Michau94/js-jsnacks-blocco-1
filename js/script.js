@@ -81,16 +81,16 @@ se è dispari stampa il numero successivo.
 3- stampa in console */
 
 
-console.log('------------------------Snack 2-------------------------');
+console.log('------------------------------Snack 2----------------------------');
 alert('Snack 2');
 
 var oddEven = document.getElementById('paridispari');
 
-var userNumber = parseInt(prompt('Inserisci un numero'));
+var userNumber = parseInt(prompt('Inserisci un numero', '10'));
 
 //validation
 while (isNaN(userNumber)) {
-    userNumber = parseInt(prompt('Inserisci un numero'));
+    userNumber = parseInt(prompt('Inserisci un numero', '10'));
 }
 
 // condizioni
@@ -115,7 +115,7 @@ if (userNumber % 2 === 0) {
 
 //display
 
-console.log('--------------snack 3--------------');
+console.log('------------------------------Snack 3----------------------------');
 
 var fakeDisplay = document.getElementById('fake');
 
@@ -168,7 +168,44 @@ fakeDisplay.innerHTML = fakeListDisplay;
 
 /*SNACK 4: Crea due array che hanno un numero di elementi diversi.
 Aggiungi elementi casuali all’array che ha meno elementi,
-    fino a quando ne avrà tanti quanti l’altro.*/
+    fino a quando ne avrà tanti quanti l’altro. 
+
+1 - creare due array contenenti numero di elementi diversi. (length diversa).
+2 - ciclo if per confrontare lugghezza dei due array e pushare oggetto random finchè lenghth non uguale.
+    
+*/
+
+
+var displayArray1 = document.getElementById('array1');
+var displayArray2 = document.getElementById('array2');
+
+console.log('------------------------------Snack 4----------------------------');
+
+var array1 = ['miao', 'bau', 'frr', 'elicottero'];
+var array2 = ['elicottero'];
+
+var i = 0;
+
+//execute till arrays are different
+while (array1.length != array2.length) {
+    if (array1.length > array2.length) {
+        array2.push(Math.floor(Math.random() * 10));
+    } else {
+        array1.push(Math.floor(Math.random() * 10));
+    }
+}
+
+//arrays are the same length
+console.log(array1);
+console.log(array2);
+
+//output 
+
+displayArray1.innerText = array1.join(' , ');
+displayArray2.innerText = array2.join(' , ');
+
+
+
 
 
 
